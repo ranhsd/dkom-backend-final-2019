@@ -1,0 +1,40 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: dkom-k8s
+  namespace: dkom 
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: dkom-kis
+        app: dkom-k8s
+        tier: backend
+        role: backend-server
+    spec:
+      volumes: 
+      - name: dkom-k8s-config
+        configMap:
+          name: dkom-k8s-config      
+      containers:
+      - name: dkom-k8s
+        image: gcr.io/trench-2018/dkom-backend-final-2019:0.1
+        imagePullPolicy: Always 
+        command: ["npm","start",--,]
+        args: ["/etc/config/config.json"]
+        env:
+        - name: ROLLBACK_VER
+          value: "1"          
+        volumeMounts: 
+          - name: dkom-k8s-config
+            mountPath: "/etc/config"
+            readOnly: true        
+        ports:
+        - containerPort: 1337       
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 1337
+          initialDelaySeconds: 5
+          timeoutSeconds: 1

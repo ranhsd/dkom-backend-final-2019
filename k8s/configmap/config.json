@@ -1,0 +1,28 @@
+{
+    "databaseURI": "mongodb://mongo:27017/dkom-k8s-db",
+    "appId": "8o3XCTffZHcEf8117bhggd7Z6yIOItmXGkcJuN21V3A",
+    "masterKey": "hjsVTnYrE1dE5EQ7eiZeL7PszOb2CVu5v5X09CsaC0",
+    "serverURL": "http://localhost:1337",
+    "publicServerURL" : "http://104.197.245.229",
+    "mountPath": "/",
+    "cloud": "/dkom-k8s/cloud/main.js",
+    "port": 1337,
+    "appName": "DKOM K8S Remote Server",
+    "allowClientClassCreation": true,
+    "maxLimit": 250,
+    "masterKeyIps": [],
+    "maxUploadSize": "100mb",
+    "verbose" : true,
+    "enableAnonymousUsers": false,
+    "liveQuery" : { 
+        "pubSubAdapter": "parse-server-gcloud-pubsub",       
+        "classNames": [
+            "_User",
+            "Candidate"
+        ]
+    },       
+    "startLiveQueryServer" : true,
+    "liveQueryServerOptions": {
+        "pubSubAdapter": "parse-server-gcloud-pubsub"
+    }    
+}

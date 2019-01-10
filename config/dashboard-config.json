@@ -1,0 +1,17 @@
+{
+    "apps": [ 
+      {
+        "serverURL": "http://localhost:1337",
+        "appId": "8o3XCTffZHcEf8117bhggd7Z6yIOItmXGkcJuN21V3A",
+        "masterKey": "hjsVTnYrE1dE5EQ7eiZeL7PszOb2CVu5v5X09CsaC0",
+        "appName": "DKOM K8S Local"
+      }
+    ],
+    "users": [
+      {
+        "user": "ranhsd",
+        "pass": "welcome"
+      }
+    ],
+    "useEncryptedPasswords": false
+  }

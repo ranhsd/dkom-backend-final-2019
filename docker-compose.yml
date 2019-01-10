@@ -1,0 +1,51 @@
+version: '3.1'
+
+volumes: 
+  mongodb: 
+
+services:
+  app:
+    build: ./
+    command: npm run dev -- /dkom-k8s/config/config.json
+    container_name: dkom-k8s    
+    networks:
+      - custom    
+    volumes:
+      - ./:/dkom-k8s/
+      - /dkom-k8s/node_modules
+    ports:
+      - "1337:1337"
+      - "9229:9229"
+    external_links:  
+      - mongo  
+    depends_on:
+      - mongo    
+    # env_file:
+      # ./dev.env # read env variables from dev.env file located in app folder              
+
+  dashboard:
+    image: parseplatform/parse-dashboard:1.1.0
+    volumes:
+      - ./config/dashboard-config.json:/src/Parse-Dashboard/parse-dashboard-config.json   
+    environment:
+      PORT: 4040
+      PARSE_DASHBOARD_ALLOW_INSECURE_HTTP: 1
+      ALLOW_INSECURE_HTTP: 1
+      MOUNT_PATH: "/"
+    ports:
+      - "4040:4040"      
+
+  # MongoDB image config - this container will exposed as external so other container will use it 
+  mongo:
+    image: mongo
+    container_name: backend-mongo
+    ports: 
+    - "27017:27017"
+    volumes:
+      - mongodb:/data/db 
+    networks:
+      - custom      
+              
+networks:
+  custom:
+    external: true  

@@ -1,0 +1,17 @@
+{
+  "name": "dkom-k8s",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon -L --delay 2 --inspect=0.0.0.0:9229 ./node_modules/.bin/parse-server",
+    "start": "node ./node_modules/.bin/parse-server"  
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "parse-server": "^3.1.3",
+    "parse-server-gcloud-pubsub": "^2.1.0"
+  }
+}

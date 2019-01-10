@@ -1,0 +1,17 @@
+{
+    "databaseURI": "mongodb://mongo:27017/dkom-db-final",
+    "appId": "8o3XCTffZHcEf8117bhggd7Z6yIOItmXGkcJuN21V3A",
+    "masterKey": "hjsVTnYrE1dE5EQ7eiZeL7PszOb2CVu5v5X09CsaC0",
+    "serverURL": "http://localhost:1337",
+    "publicServerURL" : "http://local:1337",
+    "mountPath": "/",
+    "cloud": "/dkom-k8s/cloud/main.js",
+    "port": 1337,
+    "appName": "DKOM 19 Local Server",
+    "allowClientClassCreation": true,
+    "maxLimit": 250,
+    "masterKeyIps": [],
+    "maxUploadSize": "100mb",
+    "verbose" : true,
+    "enableAnonymousUsers": false    
+}
